@@ -17,24 +17,25 @@ class ViewController: UIViewController {
 
         let imageNames = ["stars", "circles", "chevron", "squares", "checkers"]
 
-        UIView.animateWithDuration(0.5, delay: 5, options: .Repeat, animations: {
-            
-                let randomNumber = arc4random_uniform(UInt32(imageNames.count))
-                self.mainImage.image = UIImage(named: imageNames[Int(randomNumber)])!
+        UIView.animateWithDuration(1, delay: 5, options: .Autoreverse | .Repeat,
+            animations: {
+                
+                self.mainImage.alpha = 0
+                
+            }, completion: { finished in
 
-            }, completion: nil)
-        
-        /*
-        var selectedImage: UIImage
-        selectedImage = mainImage.image!
-        
-        while(mainImage.image == selectedImage) {
-            let randomNumber = arc4random_uniform(UInt32(imageNames.count))
-            selectedImage = UIImage(named: imageNames[Int(randomNumber)])!
-        }
-        
-        mainImage.image = selectedImage
-        */
+                println("completion block")
+                var selectedImage: UIImage
+                selectedImage = self.mainImage.image!
+                
+                while(self.mainImage.image == selectedImage) {
+                    let randomNumber = arc4random_uniform(UInt32(imageNames.count))
+                    selectedImage = UIImage(named: imageNames[Int(randomNumber)])!
+                }
+                
+                self.mainImage.image = selectedImage
+
+            })
     }
     
     
