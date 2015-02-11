@@ -15,29 +15,43 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let imageNames = ["stars", "circles", "chevron", "squares", "checkers"]
-
-        UIView.animateWithDuration(1, delay: 5, options: .Autoreverse | .Repeat,
-            animations: {
-                
-                self.mainImage.alpha = 0
-                
+        fadeOut()
+    }
+    
+    func fadeOut() {
+            UIView.animateWithDuration(0.5, delay: 5, options: nil, animations: {
+                    self.mainImage.alpha = 0
+                }, completion: { finished in
+                    self.changeImage()
+                })
+    }
+    
+    func fadeIn() {
+        UIView.animateWithDuration(0.5, delay: 0, options: nil, animations: {
+                self.mainImage.alpha = 1
             }, completion: { finished in
-
-                println("completion block")
-                var selectedImage: UIImage
-                selectedImage = self.mainImage.image!
-                
-                while(self.mainImage.image == selectedImage) {
-                    let randomNumber = arc4random_uniform(UInt32(imageNames.count))
-                    selectedImage = UIImage(named: imageNames[Int(randomNumber)])!
-                }
-                
-                self.mainImage.image = selectedImage
-
+                self.fadeOut()
             })
     }
     
+    func changeImage() {
+        let imageNames = ["stars", "circles", "chevron", "squares", "checkers"]
+        weak var selectedImage = mainImage.image
+        
+        while(self.mainImage.image == selectedImage) {
+            let randomNumber = arc4random_uniform(UInt32(imageNames.count))
+            selectedImage = UIImage(named: imageNames[Int(randomNumber)])!
+        }
+        self.mainImage.image = selectedImage
+        selectedImage = nil
+        self.fadeIn()
+    }
+
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
