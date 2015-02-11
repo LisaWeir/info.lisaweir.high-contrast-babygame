@@ -14,13 +14,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var alert = UIAlertController(title: "Alert", message: "Ran out of gas.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "K", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-
-       // fadeImageOut()
+        fadeImageOut()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         var alert = UIAlertController(title: "Alert", message: "Ran out of gas.", preferredStyle: UIAlertControllerStyle.Alert)
