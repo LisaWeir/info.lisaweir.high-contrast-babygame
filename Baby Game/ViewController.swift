@@ -7,21 +7,27 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioPlayerDelegate {
 
     @IBOutlet weak var mainImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fadeImageOut()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        var alert = UIAlertController(title: "Alert", message: "Ran out of gas.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "K", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+    override func viewDidAppear(animated: Bool) {
+        
+        let songFile = NSBundle.mainBundle().pathForResource("song1", ofType: "mp3")
+        let fileURL = NSURL.fileURLWithPath(songFile!)
+
+        var jukeBox = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        jukeBox.prepareToPlay()
+        jukeBox.delegate = self
+        jukeBox.play()
+        
+        fadeImageOut()
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -48,7 +54,7 @@ class ViewController: UIViewController {
         let imageNames = ["stars", "circles", "chevron", "squares", "checkers"]
         weak var selectedImage = mainImage.image
         
-        while(mainImage.image == selectedImage) {
+        while mainImage.image == selectedImage {
             let randomNumber = arc4random_uniform(UInt32(imageNames.count))
             selectedImage = UIImage(named: imageNames[Int(randomNumber)])!
         }
@@ -56,6 +62,15 @@ class ViewController: UIViewController {
         selectedImage = nil
         fadeImageIn()
     }
-        
+    
+    
+    // Remove after debug:
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        var alert = UIAlertController(title: "Alert", message: "Ran out of gas.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "K", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
 }
 

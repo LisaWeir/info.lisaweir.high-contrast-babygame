@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB5EFC41A8D481200479C2C /* song1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1AB5EFC31A8D481200479C2C /* song1.mp3 */; };
 		A1AB563D1A77172D008074EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB563C1A77172D008074EC /* AppDelegate.swift */; };
 		A1AB563F1A77172D008074EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB563E1A77172D008074EC /* ViewController.swift */; };
 		A1AB56421A77172D008074EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AB56401A77172D008074EC /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AB5EFC31A8D481200479C2C /* song1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song1.mp3; sourceTree = "<group>"; };
 		A1AB56371A77172D008074EC /* Baby Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AB563B1A77172D008074EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AB563C1A77172D008074EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				A1AB56401A77172D008074EC /* Main.storyboard */,
 				A1AB56431A77172D008074EC /* Images.xcassets */,
 				A1AB56451A77172D008074EC /* LaunchScreen.xib */,
+				1AB5EFC31A8D481200479C2C /* song1.mp3 */,
 				A1AB563A1A77172D008074EC /* Supporting Files */,
 			);
 			path = "Baby Game";
@@ -196,6 +199,7 @@
 				A1AB56421A77172D008074EC /* Main.storyboard in Resources */,
 				A1AB56471A77172D008074EC /* LaunchScreen.xib in Resources */,
 				A1AB56441A77172D008074EC /* Images.xcassets in Resources */,
+				1AB5EFC41A8D481200479C2C /* song1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +414,7 @@
 				A1AB56581A77172D008074EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1AB56591A77172D008074EC /* Build configuration list for PBXNativeTarget "Baby GameTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +423,7 @@
 				A1AB565B1A77172D008074EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
